@@ -1,17 +1,20 @@
-import { ReactNode } from "react"
+import { ReactNode, useCallback } from "react"
 
 import { Box, Typography } from "@mui/material"
 
 import CalendarAccountRow from "./CalendarAccountRow"
 import { useCalendarTheme } from "./CalendarThemeProvider"
+import { useCalendar } from "./CalendarProvider"
 
 export default function CalendarDateRow ({
   title
 }: {
   title: ReactNode
 }) {
+  const { scheduleShown } = useCalendar()
   const { minuteWidth } = useCalendarTheme()
   const bodyWidth = minuteWidth * 60 * 24 + 160
+
   return (
     <Box display="flex" borderBottom={1} borderColor="divider">
       <Box
@@ -22,9 +25,11 @@ export default function CalendarDateRow ({
         <Typography variant="body2">{title}</Typography>
       </Box>
       <Box width={bodyWidth} flexShrink="0">
-        <CalendarAccountRow
-          title="全体" type="orgnization"
-          activeStartTime="9:00" activeEndTime="21:00" />
+        {scheduleShown && (
+          <CalendarAccountRow
+            title="全体" type="orgnization"
+            activeStartTime="9:00" activeEndTime="21:00" />
+        )}
         <CalendarAccountRow
           title="田中佑典" type="person"
           activeStartTime="9:00" activeEndTime="12:00" />

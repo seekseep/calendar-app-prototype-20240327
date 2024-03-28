@@ -1,23 +1,33 @@
 import { createContext, useContext, useState } from "react"
 
 interface CalendarState {
+  scheduleShown: boolean
   editDialogOpened: boolean
 }
 
 interface CalendarHelpers {
   openEditDialog: () => void
   closeEditDialog: () => void
+  toggleSchedule: () => void
 }
 
 type Calendar = CalendarState & CalendarHelpers
 
-const calendar: Calendar = {
-  editDialogOpened: false,
-  closeEditDialog: () => {},
-  openEditDialog: () => {}
+const defaultCalendarState: CalendarState = {
+  scheduleShown: true,
+  editDialogOpened: false
 }
 
-export const CalendarContext = createContext<Calendar>(calendar)
+const defaultCalendar: CalendarHelpers = {
+  closeEditDialog: () => {},
+  openEditDialog: () => {},
+  toggleSchedule: () => {},
+}
+
+export const CalendarContext = createContext<Calendar>({
+  ...defaultCalendarState,
+  ...defaultCalendar
+})
 
 export function useCalendar () {
   return useContext(CalendarContext)
@@ -28,14 +38,17 @@ export default function CalendarProvider({
 }: {
   children: React.ReactNode
 }) {
-  const [state, setState] = useState<CalendarState>(calendar)
+  const [state, setState] = useState<CalendarState>(defaultCalendarState)
 
   const helpers = {
-    openEditDialog: () => {
+    openEditDialog (){
       setState({ ...state, editDialogOpened: true })
     },
-    closeEditDialog: () => {
+    closeEditDialog () {
       setState({ ...state, editDialogOpened: false })
+    },
+    toggleSchedule () {
+      setState({ ...state, scheduleShown: !state.scheduleShown })
     }
   }
 

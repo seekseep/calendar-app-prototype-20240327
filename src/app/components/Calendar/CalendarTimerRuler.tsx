@@ -5,7 +5,7 @@ import { useCalendarTheme } from "./CalendarThemeProvider"
 export default function CalendarTimerRuler () {
   const { minuteWidth } = useCalendarTheme()
   return (
-    <Box display="flex" bgcolor="background.default" position="sticky" top="0" zIndex={2000}>
+    <Box display="flex" bgcolor="background.default" position="sticky" top={44} zIndex={2000}>
       <Box width={240} flexShrink="0" borderRight={1} borderBottom={2} borderColor="divider" />
       <Box width={minuteWidth * 60 * 24} display="flex">
         {Array.from({ length: 24 }).map((_, i) => (

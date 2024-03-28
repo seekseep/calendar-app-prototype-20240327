@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material"
 
 import CalendarEventRow from "./CalendarEventRow"
 import CalendarFreeBusyRow from "./CalendarFreeBusyRow"
+import { useCalendar } from "./CalendarProvider"
 
 export default function CalendarAccountRow ({
   type,
@@ -16,6 +17,7 @@ export default function CalendarAccountRow ({
   type: "orgnization" | "person"
   title: ReactNode
 }) {
+  const { scheduleShown } = useCalendar()
   return (
     <Box display="flex" borderBottom={1} borderColor="divider">
       <Box
@@ -28,10 +30,12 @@ export default function CalendarAccountRow ({
         <Typography variant="body2">{title}</Typography>
       </Box>
       <Box>
-        <CalendarFreeBusyRow
-          activeStartTime={activeStartTime}
-          activeEndTime={activeEndTime}
-          last={type === "orgnization"} />
+        {scheduleShown && (
+          <CalendarFreeBusyRow
+            activeStartTime={activeStartTime}
+            activeEndTime={activeEndTime}
+            last={type === "orgnization"} />
+        )}
         {type === 'person' && (
           <>
             <CalendarEventRow
