@@ -1,7 +1,9 @@
-import { Box, Typography } from "@mui/material";
-import CalendarAccountRow from "./CalendarAccountRow";
-import { ReactNode } from "react";
-import { useCalendarTheme } from "./CalendarThemeProvider";
+import { ReactNode } from "react"
+
+import { Box, Typography } from "@mui/material"
+
+import CalendarAccountRow from "./CalendarAccountRow"
+import { useCalendarTheme } from "./CalendarThemeProvider"
 
 export default function CalendarDateRow ({
   title
@@ -22,19 +24,19 @@ export default function CalendarDateRow ({
       <Box width={bodyWidth} flexShrink="0">
         <CalendarAccountRow
           title="全体" type="orgnization"
-          activeStartTime="9:00" activeEndTime="21:00"  />
+          activeStartTime="9:00" activeEndTime="21:00" />
         <CalendarAccountRow
           title="田中佑典" type="person"
-          activeStartTime="9:00" activeEndTime="12:00"  />
+          activeStartTime="9:00" activeEndTime="12:00" />
         <CalendarAccountRow
           title="木村恵子" type="person"
-          activeStartTime="10:00" activeEndTime="16:00"  />
+          activeStartTime="10:00" activeEndTime="16:00" />
         <CalendarAccountRow
           title="浜寺新市" type="person"
-          activeStartTime="13:00" activeEndTime="20:00"  />
+          activeStartTime="13:00" activeEndTime="20:00" />
         <CalendarAccountRow
           title="ロベルトC" type="person"
-          activeStartTime="12:00" activeEndTime="21:00"  />
+          activeStartTime="12:00" activeEndTime="21:00" />
       </Box>
     </Box>
   )

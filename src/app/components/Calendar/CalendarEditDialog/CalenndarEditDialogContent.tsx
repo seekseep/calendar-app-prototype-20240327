@@ -7,7 +7,7 @@ import {
   DialogProps,
   TextField,
   Stack
-} from "@mui/material";
+} from "@mui/material"
 
 interface CalendarEditDialogContentProps extends DialogProps {}
 

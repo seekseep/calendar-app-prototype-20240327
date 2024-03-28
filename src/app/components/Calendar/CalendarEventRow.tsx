@@ -1,6 +1,8 @@
-import { Box } from "@mui/material";
-import { useCalendarTheme } from "./CalendarThemeProvider";
-import { useMemo } from "react";
+import { useMemo } from "react"
+
+import { Box } from "@mui/material"
+
+import { useCalendarTheme } from "./CalendarThemeProvider"
 
 export default function CalendarEventRow ({
   activeStartTime,
@@ -18,7 +20,8 @@ export default function CalendarEventRow ({
     const activeX = minuteWidth * (startHour * 60 + startMinute)
     const activeWidth = minuteWidth * ((endHour - startHour) * 60 + endMinute - startMinute)
     return { activeX, activeWidth }
-  }, [])
+  }, [minuteWidth, activeEndTime, activeStartTime])
+
   return (
     <Box display="flex" height={24}>
       <Box
@@ -35,8 +38,11 @@ export default function CalendarEventRow ({
           bgcolor="background.default" zIndex={0} />
         {Array.from({ length: 24 * 4 }).map((_, i) => (
           <Box
+            key={i}
             position="relative" zIndex={500}
-           width={minuteWidth * 15} borderRight={1} borderColor="divider" />
+            width={minuteWidth * 15}
+            borderRight={1}
+            borderColor="divider" />
         ))}
       </Box>
     </Box>

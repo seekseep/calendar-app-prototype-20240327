@@ -1,10 +1,11 @@
-import type { Metadata } from "next"
 import CssBaseline from '@mui/material/CssBaseline'
+
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "カレンダーのプロトタイプ",
   description: "",
-};
+}
 
 export default function RootLayout({
   children,
@@ -18,5 +19,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  );
+  )
 }

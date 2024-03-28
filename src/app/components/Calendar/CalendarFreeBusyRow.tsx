@@ -1,8 +1,10 @@
-import { Box, ButtonBase, Typography } from "@mui/material";
-import { useCalendarTheme } from "./CalendarThemeProvider";
-import { useMemo } from "react";
-import DragHandleIcon from '@mui/icons-material/DragHandle';
-import { useCalendar } from "./CalendarProvider";
+import { useMemo } from "react"
+
+import DragHandleIcon from '@mui/icons-material/DragHandle'
+import { Box, ButtonBase, Typography } from "@mui/material"
+
+import { useCalendar } from "./CalendarProvider"
+import { useCalendarTheme } from "./CalendarThemeProvider"
 
 export default function CalendarFreeBusyRow ({
   last = false,
@@ -21,7 +23,7 @@ export default function CalendarFreeBusyRow ({
     const activeX = minuteWidth * (startHour * 60 + startMinute)
     const activeWidth = minuteWidth * ((endHour - startHour) * 60 + endMinute - startMinute)
     return { activeX, activeWidth }
-  }, [])
+  }, [minuteWidth, activeEndTime, activeStartTime])
   return (
     <Box borderColor="divider" display="flex" height={20} >
       <Box
@@ -39,7 +41,7 @@ export default function CalendarFreeBusyRow ({
         position="relative" bgcolor="grey.100"
         display="flex" borderBottom={last ? 0 : 1} borderColor="divider" width={minuteWidth * 60 * 24}>
         {Array.from({ length: 24 * 4 }).map((_, i) => (
-          <Box width={minuteWidth * 15} borderRight={1} borderColor="divider" />
+          <Box key={i} width={minuteWidth * 15} borderRight={1} borderColor="divider" />
         ))}
         <Box
           position="absolute"

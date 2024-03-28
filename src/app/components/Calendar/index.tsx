@@ -1,11 +1,11 @@
 'use client'
 
-import CalendarDateRow from "./CalendarDateRow";
-import CalendarTimerRuler from "./CalendarTimerRuler";
-import CalendarThemeProvider from "./CalendarThemeProvider";
-import CalendarContiner from "./CalendarContiner";
-import CalendarProvider from "./CalendarProvider";
-import CalendarEditDialog from "./CalendarEditDialog";
+import CalendarContiner from "./CalendarContiner"
+import CalendarDateRow from "./CalendarDateRow"
+import CalendarEditDialog from "./CalendarEditDialog"
+import CalendarProvider from "./CalendarProvider"
+import CalendarThemeProvider from "./CalendarThemeProvider"
+import CalendarTimerRuler from "./CalendarTimerRuler"
 
 export default function Calendar () {
   return (

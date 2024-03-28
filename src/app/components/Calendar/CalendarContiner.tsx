@@ -1,6 +1,8 @@
-import { Box } from "@mui/material";
-import { PropsWithChildren } from "react";
-import { useCalendarTheme } from "./CalendarThemeProvider";
+import { PropsWithChildren } from "react"
+
+import { Box } from "@mui/material"
+
+import { useCalendarTheme } from "./CalendarThemeProvider"
 
 export default function CalendarContiner ({ children }: PropsWithChildren) {
   const { minuteWidth } = useCalendarTheme()

@@ -1,7 +1,9 @@
-import { Box, Typography } from "@mui/material";
-import { ReactNode } from "react";
-import CalendarFreeBusyRow from "./CalendarFreeBusyRow";
-import CalendarEventRow from "./CalendarEventRow";
+import { ReactNode } from "react"
+
+import { Box, Typography } from "@mui/material"
+
+import CalendarEventRow from "./CalendarEventRow"
+import CalendarFreeBusyRow from "./CalendarFreeBusyRow"
 
 export default function CalendarAccountRow ({
   type,

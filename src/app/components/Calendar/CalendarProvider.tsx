@@ -39,7 +39,7 @@ export default function CalendarProvider({
     }
   }
 
-  const value  = { ...state, ...helpers }
+  const value = { ...state, ...helpers }
 
   return (
     <CalendarContext.Provider value={value}>
